@@ -39,6 +39,12 @@ header{
     z-index: 1000000;
 }
 
+.headerG{
+    position: sticky;
+    top: 0px;
+    z-index: 1000000;
+}
+
 nav>ul{
     list-style: none;
     display: flex;
@@ -228,7 +234,6 @@ input[type="text"],input[type="email"],input[type="number"]{padding: 1em;}
 }
 
 #contenedorGaleria{
-    display: flex;
     justify-content: center;
     margin-top: 2em;
     margin-bottom: 2em;
@@ -674,4 +679,32 @@ td,td{
 
 .bordes-galeria{
     border: 2px solid #e1c699;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.con_DG{
+    padding: 2em;
+}
+
+.imagenes-galeria{
+    width: 15%;
+    min-width: 180px;
+    border-radius: 50%;
+    margin: auto;
+}
+
+.imagenes-galeria:hover{
+    cursor: pointer;
+}
+
+.headerSin{
+    position: sticky;
+    top: 0px;
+    z-index: 0;
+}
+
+#modalHeader,#modalFoot{
+    background-color: #e1c699;
 }

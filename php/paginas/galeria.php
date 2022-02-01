@@ -13,6 +13,7 @@
     <link rel="icon" href="../../img/favicon.png" type="image/png" />
     <link rel="stylesheet" href="../../css/styles.css">
     <script type="text/javascript" src="../../js/names.js"></script>
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
     <script type="text/javascript" src="../../js/app.js" defer></script>
     <title>Galería | Safari</title>
 </head>
@@ -23,7 +24,7 @@
     echo mostrarCabecera("Galería", "../../index.php", "../../img/huella.png");
     ?>
 
-    <header>
+    <header class="headerG">
         <?php
         if (isset($_COOKIE["como_usuario"])) {
             echo mostrarNavUser("../../index.php", "mis_mascotas.php", "mis_datos.php", "mis_citas.php", "productos.php", "servicios.php", "galeria.php");
@@ -51,10 +52,26 @@
                 <h2>¡ ÚLTIMAS FOTOS DE NUESTROS CLIENTES !</h2>
             </div>
         </div>
-        <div  id="contenedorGaleria">
-            <div class="bordes-galeria rounded-pill">
+        <div id="contenedorGaleria">
+        </div>
+
+        <div class="modal fade border-0" id="modalFotoGrande" tabindex="-1" aria-labelledby="nombreAnimal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header" id="modalHeader">
+                        <h5 class="modal-title" id="nombreAnimal">A</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img id="imagenEspecifica">
+                    </div>
+                    <div class="modal-footer justify-content-center" id="modalFoot">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
             </div>
         </div>
+
     </main>
 </body>
 
