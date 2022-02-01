@@ -10,6 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
     <link rel="icon" href="../../img/favicon.png" type="image/png" />
     <link rel="stylesheet" href="../../css/styles.css">
+    <script type="text/javascript" src="../../js/names.js"></script>
+    <script type="text/javascript" src="../../js/app.js" defer></script>
     <title>Galería | Safari</title>
 </head>
 
@@ -22,24 +24,41 @@
     <header>
         <?php
         if (isset($_COOKIE["como_usuario"])) {
-            echo mostrarNavUser("../../index.php", "mis_mascotas.php", "mis_datos.php", "mis_citas.php", "productos.php", "servicios.php","galeria.php");
+            echo mostrarNavUser("../../index.php", "mis_mascotas.php", "mis_datos.php", "mis_citas.php", "productos.php", "servicios.php", "galeria.php");
 
             if (isset($_POST["cerrar_sesion"])) {
                 setcookie("como_usuario", null, -3, "/");
                 header("location:../../index.php");
             }
         } elseif (isset($_COOKIE["como_admin"])) {
-            echo mostrarNavAdmin("../../index.php", "clientes.php", "productos.php", "servicios.php", "testimonios.php", "noticias.php", "citas.php", "dueños.php","galeria.php");
+            echo mostrarNavAdmin("../../index.php", "clientes.php", "productos.php", "servicios.php", "testimonios.php", "noticias.php", "citas.php", "dueños.php", "galeria.php");
 
             if (isset($_POST["cerrar_sesion"])) {
                 setcookie("como_admin", null, -3, "/");
                 header("location:../../index.php");
             }
         } else {
-            echo mostrarNavSin("../../index.php", "productos.php", "servicios.php", "login.php","galeria.php");
+            echo mostrarNavSin("../../index.php", "productos.php", "servicios.php", "login.php", "galeria.php");
         }
         ?>
     </header>
+
+    <main>
+        <div id="contenedor">
+            <div class="insertar_datos">
+                <h2>¡FOTOS DE NUESTROS CLIENTES!</h2>
+            </div>
+        </div>
+        <div id="contenedorSer">
+            <table id="tablas_mostrar">
+                <tr id="cabecera_tabla">
+                    <td>Nombre del servicio</td>
+                    <td>Duración</td>
+                    <td>Precio</td>
+                </tr>
+            </table>
+        </div>
+    </main>
 </body>
 
 </html>
