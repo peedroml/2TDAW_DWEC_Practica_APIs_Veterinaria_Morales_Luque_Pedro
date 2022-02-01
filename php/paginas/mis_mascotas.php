@@ -28,7 +28,7 @@
     <header>
         <?php
             if(isset($_COOKIE["como_usuario"])){
-                echo mostrarNavUser("../../index.php","mis_mascotas.php","mis_datos.php","mis_citas.php","productos.php","servicios.php");
+                echo mostrarNavUser("../../index.php","mis_mascotas.php","mis_datos.php","mis_citas.php","productos.php","servicios.php","galeria.php");
 
                 if(isset($_POST["cerrar_sesion"])){
                     setcookie("como_usuario",null,-3,"/");

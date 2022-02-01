@@ -28,7 +28,7 @@
     <header>
         <?php
             if(isset($_COOKIE["como_admin"])){
-                echo mostrarNavAdmin("../../index.php","clientes.php","productos.php","servicios.php","testimonios.php","noticias.php","citas.php","dueños.php");
+                echo mostrarNavAdmin("../../index.php","clientes.php","productos.php","servicios.php","testimonios.php","noticias.php","citas.php","dueños.php","galeria.php");
 
                 if(isset($_POST["cerrar_sesion"])){
                     setcookie("como_admin",null,-3,"/");

@@ -18,7 +18,7 @@
         return $re;
     }
 
-    function mostrarNavAdmin($index,$clientes,$productos,$servicios,$testimonios,$noticias,$citas,$dueños){
+    function mostrarNavAdmin($index,$clientes,$productos,$servicios,$testimonios,$noticias,$citas,$dueños,$galeria){
         $re="<nav>
             <ul>
                 <li>
@@ -46,6 +46,9 @@
                     <a class='a_menu' href='$dueños'>Dueños</a>
                 </li>
                 <li>
+                    <a class='a_menu' href='$galeria'>Galería</a>
+                </li>
+                <li>
                     <form id='cerrar' action='#' method='POST'>
                         <input type='submit' name='cerrar_sesion' value='Cerrar sesión'>
                     </form>
@@ -55,7 +58,7 @@
         return $re;
     }
 
-    function mostrarNavUser($index,$mis_mascotas,$mis_datos,$mis_citas,$productos,$servicios){
+    function mostrarNavUser($index,$mis_mascotas,$mis_datos,$mis_citas,$productos,$servicios,$galeria){
         $re="<nav>
             <ul>
                 <li>
@@ -77,6 +80,9 @@
                     <a class='a_menu' href='$servicios'>Servicios</a>
                 </li>
                 <li>
+                    <a class='a_menu' href='$galeria'>Galería</a>
+                </li>
+                <li>
                     <form id='cerrar' action='#' method='POST'>
                         <input type='submit' name='cerrar_sesion' value='Cerrar sesión'>
                     </form>
@@ -86,7 +92,7 @@
         return $re;
     }
 
-    function mostrarNavSin($index,$productos,$servicios,$acceder){
+    function mostrarNavSin($index,$productos,$servicios,$acceder,$galeria){
         $re="<nav>
             <ul>
                 <li>
@@ -97,6 +103,9 @@
                 </li>
                 <li>
                     <a class='a_menu' href='$servicios'>Servicios</a>
+                </li>
+                <li>
+                    <a class='a_menu' href='$galeria'>Galería</a>
                 </li>
                 <li>
                     <a class='a_menu' href='$acceder'>Acceder</a>

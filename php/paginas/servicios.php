@@ -24,7 +24,7 @@
     <header>
         <?php
             if(isset($_COOKIE["como_usuario"])){
-                echo mostrarNavUser("../../index.php","mis_mascotas.php","mis_datos.php","mis_citas.php","productos.php","servicios.php");
+                echo mostrarNavUser("../../index.php","mis_mascotas.php","mis_datos.php","mis_citas.php","productos.php","servicios.php","galeria.php");
 
                 if(isset($_POST["cerrar_sesion"])){
                     setcookie("como_usuario",null,-3,"/");
@@ -32,7 +32,7 @@
                 }
 
             }elseif(isset($_COOKIE["como_admin"])){
-                echo mostrarNavAdmin("../../index.php","clientes.php","productos.php","servicios.php","testimonios.php","noticias.php","citas.php","dueños.php");
+                echo mostrarNavAdmin("../../index.php","clientes.php","productos.php","servicios.php","testimonios.php","noticias.php","citas.php","dueños.php","galeria.php");
 
                 if(isset($_POST["cerrar_sesion"])){
                     setcookie("como_admin",null,-3,"/");
@@ -40,7 +40,7 @@
                 }
 
             }else{
-                echo mostrarNavSin("../../index.php","productos.php","servicios.php","login.php");
+                echo mostrarNavSin("../../index.php","productos.php","servicios.php","login.php","galeria.php");
             }
         ?>
     </header>
