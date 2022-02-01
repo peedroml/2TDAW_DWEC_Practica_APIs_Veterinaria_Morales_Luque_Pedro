@@ -227,6 +227,13 @@ input[type="text"],input[type="email"],input[type="number"]{padding: 1em;}
     margin-bottom: 2em;
 }
 
+#contenedorGaleria{
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
 #tablas_mostrar{text-align: center;}
 
 #formulario_insertar_cli{
@@ -663,4 +670,8 @@ td,td{
 
 #contenedor_mis_citas{
     text-align: center;
+}
+
+.bordes-galeria{
+    border: 2px solid #e1c699;
 }
