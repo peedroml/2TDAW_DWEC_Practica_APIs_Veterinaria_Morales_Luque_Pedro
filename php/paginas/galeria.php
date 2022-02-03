@@ -56,7 +56,7 @@
         </div>
 
         <div class="modal fade border-0" id="modalFotoGrande" tabindex="-1" aria-labelledby="nombreAnimal" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header" id="modalHeader">
                         <h5 class="modal-title" id="nombreAnimal">A</h5>
@@ -66,13 +66,18 @@
                         <img id="imagenEspecifica">
                     </div>
                     <div class="modal-footer justify-content-center" id="modalFoot">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
                     </div>
                 </div>
             </div>
         </div>
 
     </main>
+    <footer>
+        <?php
+            echo mostrarFooter('../../img/whatsapp.png','../../img/face.png','../../img/insta.png','../../img/tw.png');
+        ?>
+    </footer>
 </body>
 
 </html>

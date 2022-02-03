@@ -691,8 +691,8 @@ td,td{
 .imagenes-galeria{
     width: 15%;
     min-width: 180px;
-    border-radius: 50%;
     margin: auto;
+    border-radius: 10%;
 }
 
 .imagenes-galeria:hover{
