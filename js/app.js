@@ -64,7 +64,7 @@ const crearContenedor = (foto, texto) => {
     return nuevo_contenedor;
 }
 
-//Funcion asincrona para utilizar la api de los perros
+//Funcion asincrona para utilizar la API de los perros
 async function insertarEnPagina(nombre_animal){
     const respuesta = await fetch("https://dog.ceo/api/breeds/image/random");
     const datos = await respuesta.json();
@@ -85,4 +85,9 @@ for(let i=0;i<3;i++){
 //Hacemos un bucle para sacar los nombres del array y añadirle una foto de la API
 for(let nombre of nombres){
     insertarEnPagina(nombre);
+}
+
+//
+if(sessionStorage.length===0){
+    //La primera vez que se carge la pagina, se metera todo en el sesion
 }
