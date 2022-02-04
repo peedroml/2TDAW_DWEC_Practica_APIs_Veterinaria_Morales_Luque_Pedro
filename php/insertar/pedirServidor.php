@@ -13,4 +13,6 @@
     while($noticia = $consulta->fetch_array(MYSQLI_ASSOC)){
         $noticias[] = $noticia;
     }
+
+    echo json_encode($noticias);
 ?>

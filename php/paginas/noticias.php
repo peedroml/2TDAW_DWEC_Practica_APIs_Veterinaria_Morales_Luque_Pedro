@@ -15,8 +15,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
     <link rel="icon" href="../../img/favicon.png" type="image/png"/>
+    <script type="text/javascript" src="../../js/app2.js" defer></script>
     <link rel="stylesheet" href="../../css/styles.css">
-    <script></script>
     <title>Noticias | Safari</title>
 </head>
 <body>
@@ -45,8 +45,6 @@
             </div>
         </div>
         <div id="contenedorNot">
-            <?php
-            ?>
         </div>
     </main>
     <footer>

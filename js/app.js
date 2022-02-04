@@ -9,7 +9,7 @@ const imagen_animal_modal = document.querySelector("#imagenEspecifica");
 const modal_imagen_grande = document.querySelector("#modalFotoGrande")
 const header = document.querySelector(".headerG");
 
-const ampliarImagen = (imagen,nombre, url_imagen) => {
+const ampliarImagen = (imagen, nombre, url_imagen) => {
     imagen.addEventListener("click",
         () => {
             header.classList.remove("headerG");
@@ -40,7 +40,7 @@ const crearContenedor = (foto, texto) => {
     img_animal.classList.add("imagenes-galeria")
 
     //Añadir funcion para sacar modal
-    ampliarImagen(img_animal,texto,foto);
+    ampliarImagen(img_animal, texto, foto);
 
     //==================================================
 
@@ -65,17 +65,17 @@ const crearContenedor = (foto, texto) => {
 }
 
 //Funcion asincrona para utilizar la API de los perros
-async function insertarEnPagina(nombre_animal){
+async function insertarEnPagina(nombre_animal) {
     const respuesta = await fetch("https://dog.ceo/api/breeds/image/random");
     const datos = await respuesta.json();
     const foto = datos.message;
 
-    contenedor_galeria.appendChild(crearContenedor(foto,nombre_animal));
+    contenedor_galeria.appendChild(crearContenedor(foto, nombre_animal));
 }
 
 //Sacamos 3 numeros aleatorios y utilizamos el JSON de personas ficticias para sacar un nombre 
 const nombres = [];
-for(let i=0;i<3;i++){
+for (let i = 0; i < 3; i++) {
     let x = Math.floor(Math.random() * (usuarios.length - 0));
     //Sacamos el nombre y ponemos la primera letra en mayuscula
     let y = usuarios[x]["name"]["first"].charAt(0).toUpperCase() + usuarios[x]["name"]["first"].slice(1);
@@ -83,11 +83,6 @@ for(let i=0;i<3;i++){
 }
 
 //Hacemos un bucle para sacar los nombres del array y añadirle una foto de la API
-for(let nombre of nombres){
+for (let nombre of nombres) {
     insertarEnPagina(nombre);
-}
-
-//
-if(sessionStorage.length===0){
-    //La primera vez que se carge la pagina, se metera todo en el sesion
 }
