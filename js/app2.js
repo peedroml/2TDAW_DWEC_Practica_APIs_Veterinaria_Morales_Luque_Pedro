@@ -7,7 +7,7 @@ const contentNoti = document.querySelector("#contenedorNot");
 const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
 //Hacemos la funcion para construir los contenedores de las noticias
-const hijosNoticias = (titulo, contenido, imagen, fInserccion, id_noticia) => {
+const hijosNoticias = (id_noticia,titulo, contenido, imagen, fInserccion) => {
     //Contenedor padre
     let div_padre = document.createElement("div");
 
@@ -40,24 +40,24 @@ const hijosNoticias = (titulo, contenido, imagen, fInserccion, id_noticia) => {
     //Primer input
     let input_1 = document.createElement("input");
     input_1.type = "hidden";
-    input_1.name = "id_noticia",
-        input_1.value = id_noticia;
+    input_1.name = "id_noticia";
+    input_1.value = id_noticia;
 
     formulario.appendChild(input_1);
 
     //Segundo input
     let input_2 = document.createElement("input");
     input_2.type = "hidden";
-    input_2.name = "enlacePagina",
-        input_2.value = "noticias.php";
+    input_2.name = "enlacePagina";
+    input_2.value = "noticias.php";
 
     formulario.appendChild(input_2);
 
     //Tercer input
     let input_3 = document.createElement("input");
     input_3.type = "submit";
-    input_3.name = "ver",
-        input_3.value = "Ver noticia completa";
+    input_3.name = "ver";
+    input_3.value = "Ver noticia completa";
 
     formulario.appendChild(input_3);
 
@@ -71,11 +71,12 @@ const hijosNoticias = (titulo, contenido, imagen, fInserccion, id_noticia) => {
     return div_padre;
 }
 
+
 if (sessionStorage.length === 0) {
     //La primera vez que se carge la pagina, se metera todo en el sesion
     (async () => {
         const request = await fetch("../insertar/pedirServidor.php");
-
+        
         //Cogemos los datos que nos devuelve nuestro archivo
         const datos_noticias = await request.json();
 
@@ -88,7 +89,7 @@ if (sessionStorage.length === 0) {
 
         Object.values(sessionStorage).forEach(
             (noticia)=>{
-                contentNoti.appendChild(hijosNoticias(JSON.parse(noticia)))
+                contentNoti.appendChild(hijosNoticias(noticia["id"],noticia["titulo"], noticia["contenido"], noticia["imagen"], noticia["fecha_publicacion"]))
             }
         )
     })();
@@ -96,7 +97,7 @@ if (sessionStorage.length === 0) {
     //En el caso de que ya haya datos en el session storage, se cargaran en la aplicacion
     Object.values(sessionStorage).forEach(
         (noticia) => {
-            contentNoti.appendChild(hijosNoticias(noticia["titulo"], noticia["contenido"], noticia["imagen"], noticia["fecha_publicacion"], noticia["id"],));
+            contentNoti.appendChild(hijosNoticias(noticia["id"],noticia["titulo"], noticia["contenido"], noticia["imagen"], noticia["fecha_publicacion"]));
         }
     )
 }
