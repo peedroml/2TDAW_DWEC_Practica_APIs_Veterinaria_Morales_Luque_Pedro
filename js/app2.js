@@ -2,6 +2,7 @@
 
 //Seleccionamos el contenedor de las noticias
 const contentNoti = document.querySelector("#contenedorNot");
+contentNoti.classList.add("mb-5")
 
 //Array de meses del año
 const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
@@ -22,6 +23,7 @@ const hijosNoticias = (id_noticia,titulo, contenido, imagen, fInserccion) => {
 
     //Imagen de la noticia
     let imagen_noticia = document.createElement("img");
+    imagen_noticia.loading = "lazy";
     imagen_noticia.src = `../../img/noticias/${imagen}`;
 
     //Fecha de inserccion de la noticia
@@ -89,6 +91,7 @@ if (sessionStorage.length === 0) {
 
         Object.values(sessionStorage).forEach(
             (noticia)=>{
+                noticia=JSON.parse(noticia);
                 contentNoti.appendChild(hijosNoticias(noticia["id"],noticia["titulo"], noticia["contenido"], noticia["imagen"], noticia["fecha_publicacion"]))
             }
         )
@@ -97,6 +100,7 @@ if (sessionStorage.length === 0) {
     //En el caso de que ya haya datos en el session storage, se cargaran en la aplicacion
     Object.values(sessionStorage).forEach(
         (noticia) => {
+            noticia=JSON.parse(noticia);
             contentNoti.appendChild(hijosNoticias(noticia["id"],noticia["titulo"], noticia["contenido"], noticia["imagen"], noticia["fecha_publicacion"]));
         }
     )
