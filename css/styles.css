@@ -708,3 +708,7 @@ td,td{
 #modalHeader,#modalFoot{
     background-color: #e1c699;
 }
+
+#contenedorNot{
+    margin-bottom: 5em;
+}
