@@ -712,3 +712,12 @@ td,td{
 #contenedorNot{
     margin-bottom: 5em;
 }
+
+.lazy{
+    opacity: 0;
+}
+
+.noticia_visible{
+    opacity: 1;
+    transition: 3s;
+}

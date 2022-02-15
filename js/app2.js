@@ -11,6 +11,7 @@ const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "
 const hijosNoticias = (id_noticia,titulo, contenido, imagen, fInserccion) => {
     //Contenedor padre
     let div_padre = document.createElement("div");
+    div_padre.classList.add("lazy");
 
     //Titulo de la noticia
     let titulo_noticia = document.createElement("h3");
@@ -23,7 +24,6 @@ const hijosNoticias = (id_noticia,titulo, contenido, imagen, fInserccion) => {
 
     //Imagen de la noticia
     let imagen_noticia = document.createElement("img");
-    imagen_noticia.loading = "lazy";
     imagen_noticia.src = `../../img/noticias/${imagen}`;
 
     //Fecha de inserccion de la noticia
@@ -105,3 +105,25 @@ if (sessionStorage.length === 0) {
         }
     )
 }
+
+//Funcion LazyLoad para cargar las noticias
+const imagenes = document.querySelectorAll(".lazy");
+
+const observer = new IntersectionObserver(
+    (entradas)=>{
+        entradas.forEach(
+            (entrada)=>{
+                if(entrada.isIntersecting){
+                    entrada.target.classList.add("noticia_visible")
+                }else{
+                    entrada.target.classList.remove("noticia_visible")
+                }
+            }
+        )
+})
+
+imagenes.forEach(
+    (imagen)=>{
+        observer.observe(imagen)
+    }
+)
