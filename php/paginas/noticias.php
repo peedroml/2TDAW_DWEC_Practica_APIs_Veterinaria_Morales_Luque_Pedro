@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    if(!isset($_COOKIE["como_admin"])){
+    if(!isset($_COOKIE["como_admin"]) && !isset($_COOKIE["como_usuario"])){
         header("location:login.php");
     }
 ?>
@@ -28,21 +28,36 @@
     
     <header>
         <?php
-            echo mostrarNavAdmin("../../index.php","clientes.php","productos.php","servicios.php","testimonios.php","noticias.php","citas.php","dueños.php","galeria.php");
-            
-            if(isset($_POST["cerrar_sesion"])){
-                setcookie("como_admin",null,-3,"/");
-                header("location:../../index.php");
+            if(isset($_COOKIE["como_usuario"])){
+                echo mostrarNavUser("../../index.php","mis_mascotas.php","mis_datos.php","mis_citas.php","productos.php","servicios.php","galeria.php","noticias.php");
+
+                if(isset($_POST["cerrar_sesion"])){
+                    setcookie("como_usuario",null,-3,"/");
+                    header("location:../../index.php");
+                }
+
+            }elseif(isset($_COOKIE["como_admin"])){
+                echo mostrarNavAdmin("../../index.php","clientes.php","productos.php","servicios.php","testimonios.php","noticias.php","citas.php","dueños.php","galeria.php");
+
+                if(isset($_POST["cerrar_sesion"])){
+                    setcookie("como_admin",null,-3,"/");
+                    header("location:../../index.php");
+                }
+
             }
         ?>
     </header>
     <main>
         <div id="contenedor">
-            <div class="insertar_datos">
-                <div>
-                    <a href="../insertar/insertar_noticia.php">Insertar nueva noticia</a>
-                </div>
-            </div>
+            <?php
+                if(isset($_COOKIE["como_admin"])){
+                    echo "<div class='insertar_datos'>
+                            <div>
+                                <a href='../insertar/insertar_noticia.php'>Insertar nueva noticia</a>
+                            </div>
+                         </div>";
+                }
+            ?>
         </div>
         <div id="contenedorNot">
         </div>

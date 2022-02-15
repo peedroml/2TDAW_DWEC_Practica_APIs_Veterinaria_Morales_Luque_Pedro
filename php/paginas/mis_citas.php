@@ -28,7 +28,7 @@
     <header>
         <?php
             if(isset($_COOKIE["como_usuario"])){
-                echo mostrarNavUser("../../index.php","mis_mascotas.php","mis_datos.php","mis_citas.php","productos.php","servicios.php","galeria.php");
+                echo mostrarNavUser("../../index.php","mis_mascotas.php","mis_datos.php","mis_citas.php","productos.php","servicios.php","galeria.php","noticias.php");
 
                 if(isset($_POST["cerrar_sesion"])){
                     setcookie("como_usuario",null,-3,"/");
@@ -217,11 +217,5 @@
             ?>
         </div>
     </main>
-
-    <footer>
-        <?php
-            echo mostrarFooter('../../img/whatsapp.png','../../img/face.png','../../img/insta.png','../../img/tw.png');
-        ?>
-    </footer>
 </body>
 </html>

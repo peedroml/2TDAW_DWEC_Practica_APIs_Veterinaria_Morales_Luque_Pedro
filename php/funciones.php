@@ -58,7 +58,7 @@
         return $re;
     }
 
-    function mostrarNavUser($index,$mis_mascotas,$mis_datos,$mis_citas,$productos,$servicios,$galeria){
+    function mostrarNavUser($index,$mis_mascotas,$mis_datos,$mis_citas,$productos,$servicios,$galeria,$noticias){
         $re="<nav>
             <ul>
                 <li>
@@ -81,6 +81,9 @@
                 </li>
                 <li>
                     <a class='a_menu' href='$galeria'>Galería</a>
+                </li>
+                <li>
+                    <a class='a_menu' href='$noticias'>Noticias</a>
                 </li>
                 <li>
                     <form id='cerrar' action='#' method='POST'>
