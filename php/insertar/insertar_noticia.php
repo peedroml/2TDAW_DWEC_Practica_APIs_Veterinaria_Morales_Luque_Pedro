@@ -16,6 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
     <link rel="icon" href="../../img/favicon.png" type="image/png"/>
     <link rel="stylesheet" href="../../css/styles.css">
+    <script type="text/javascript" src="../../js/app3.js" defer></script>
     <title>Insertar noticia | Safari</title>
 </head>
 <body>
@@ -40,35 +41,35 @@
                                                     and TABLE_NAME='noticia'");
                             while($fila = $sacar_id->fetch_array(MYSQLI_ASSOC)){
                                 $id=$fila["auto_increment"];
-                                echo "<input type='text' placeholder='$id' readonly>";
+                                echo "<input id='id_noti' type='text' placeholder='$id' readonly>";
                             }
                         ?>
                     </span>
                     <br>
                     <span>
                         <label>Título</label>
-                        <input type="text" name="titulo">
+                        <input id="titulo" type="text" name="titulo">
                     </span>
                     <br>
                     <span>
                         <label>Fecha de publicación</label>
-                        <input type="date" name="fecha">
+                        <input id="fecha" type="date" name="fecha">
                     </span> 
                     <br>
                     <span>
                         <label>Contenido</label>
                         <br>
-                        <textarea name="contenido"cols="30" rows="10">
+                        <textarea id='contenido' name="contenido"cols="30" rows="10">
                         </textarea>
                     </span> 
                     <br>
                     <span>
                         <label>Insertar imagen</label>
                         <br><br>
-                        <input type="file" name="imagen">
+                        <input id='imagen' type="file" name="imagen">
                     </span> 
                     <br>
-                    <input type="submit" name="enviar">
+                    <input type="submit" id="enviar_nueva_noticia" name="enviar">
                 </form>
             </div>
             <div id="res">
