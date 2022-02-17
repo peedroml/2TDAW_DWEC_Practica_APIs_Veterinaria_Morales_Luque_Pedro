@@ -115,8 +115,6 @@ const observer = new IntersectionObserver(
             (entrada)=>{
                 if(entrada.isIntersecting){
                     entrada.target.classList.add("noticia_visible")
-                }else{
-                    entrada.target.classList.remove("noticia_visible")
                 }
             }
         )
