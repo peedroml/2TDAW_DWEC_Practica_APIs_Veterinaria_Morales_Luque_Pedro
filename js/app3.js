@@ -8,23 +8,34 @@ const fecha = document.querySelector("#fecha")
 const contenido = document.querySelector("#contenido")
 const imagen = document.querySelector("#imagen")
 
+//Formulario
+const formu = document.querySelector("#formu");
+
 //Añadimos el evento al boton de enviar
 submit.addEventListener("click",
-    ()=>{
-        const titulo = titulo.value;
+    async(evento)=>{
+        evento.preventDefault();
+        if(titulo.value.trim()!=="" && contenido.value.trim()!=="" && imagen.value.trim()!=="" && fecha.value.trim()!==""){
+            const datos_noticia = new URLSearchParams(new FormData(formu));
+            const respuesta = await fetch("../insertar_noticia_nueva.php",
+                {
+                    method:"POST",
+                    body:datos_noticia,
+                }
+            )
+            const id_noti = await respuesta.json();
 
-        const imagen = "noticia_"+id+".jpg";
+            const datos_noti = {
+                "id":id_noti.id,
+                "titulo":titulo.value.trim(),
+                "contenido":contenido.value.trim(),
+                "imagen": imagen.value.trim(),
+                "fecha_publicacion":fecha.value.trim()
+            }
 
-        const ID_NOTICIA = "NOTI_" + titulo.replaceAll(" ", "-");
-
-        const datos_noticia = {
-            "id":id.value,
-            "titulo":titulo,
-            "contenido":contenido.value.trim(),
-            "imagen": imagen,
-            "fecha":fecha.value
+            sessionStorage.setItem("NOTI_"+titulo.value.trim().replaceAll(" ", "-"),JSON.stringify(datos_noti));
+            formu.reset();
         }
 
-        sessionStorage.setItem(ID_NOTICIA,JSON.stringify(datos_noticia));
     }
 )

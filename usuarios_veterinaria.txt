@@ -1,0 +1,14 @@
+USUARIO 1
+---------
+■ Nick: JuanN
+■ Contraseña: juanito
+
+USUARIO 2
+---------
+■ Nick: Lucy
+■ Contraseña: luciaa2
+
+USUARIO 3
+---------
+■ Nick: PablitoHRZ
+■ Contraseña: pablo2001

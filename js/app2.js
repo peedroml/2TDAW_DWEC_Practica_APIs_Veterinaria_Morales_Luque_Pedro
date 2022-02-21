@@ -24,7 +24,7 @@ const hijosNoticias = (id_noticia,titulo, contenido, imagen, fInserccion) => {
 
     //Imagen de la noticia
     let imagen_noticia = document.createElement("img");
-    imagen_noticia.src = `../../img/noticias/${imagen}`;
+    imagen_noticia.src = imagen;
 
     //Fecha de inserccion de la noticia
     let fecha_inserccion = document.createElement("p");
